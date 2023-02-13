@@ -11,6 +11,7 @@ class Rectangle:
         """Attributes"""
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -71,6 +72,6 @@ class Rectangle:
 
         return "Rectangle({:d}, {:d})".format(w, h)
 
-    def __del__(self) -> None:
+    def __del__(self):
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
