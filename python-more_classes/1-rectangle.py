@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """Instance method called when a new object is created"""
+    """This class defines a rectangle"""
 
     def __init__(self, width=0, height=0):
         """Attributes"""
