@@ -34,7 +34,7 @@ Testing my function: def matrix_divided(matrix, div):
 5. Div by string
 ================
 
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], "Pacho")
+>>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], "Home")
 Traceback (most recent call last):
 ...
 TypeError: div must be a number
@@ -111,7 +111,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 11. string inside numbers
 =========================
 
->>> matrix_divided([[1, 2, "Holbie", 4, 5], [1, 2, 3, 4, 5]], 28)
+>>> matrix_divided([[1, 2, "Home", 4, 5], [1, 2, 3, 4, 5]], 28)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats

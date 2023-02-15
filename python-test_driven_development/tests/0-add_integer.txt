@@ -68,7 +68,7 @@ TypeError: b must be an integer
 9. Double string
 ================
 
->>> add_integer("Francisco", "Ramírez")
+>>> add_integer("Jhon", "Houser")
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
