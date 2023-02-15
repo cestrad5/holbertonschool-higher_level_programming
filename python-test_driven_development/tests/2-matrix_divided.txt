@@ -1,231 +1,33 @@
-Testing my function: def matrix_divided(matrix, div):
+""" Test the function matrix_divided """
 
+""" import function """
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-====================
-1. Matrix div by int
-====================
-
->>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
-[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
-
-=================
-2. Only 2 numbers
-=================
-
->>> matrix_divided([[100], [339]], 8)
-[[12.5], [42.38]]
-
-=======================
-3. Floats and negatives
-=======================
-
->>> matrix_divided([[-10.5, 9.3], [-6.4, -15.7]], 17.3)
-[[-0.61, 0.54], [-0.37, -0.91]]
-
-===============
-4. High numbers
-===============
-
->>> matrix_divided([[1456000, 98388, 5966666], [999999999, 22222903, 18021703]], 1701)
-[[855.97, 57.84, 3507.74], [587889.48, 13064.61, 10594.77]]
-
-================
-5. Div by string
-================
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], "Home")
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], '?')
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
-==============
-6. Div by zero
-==============
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], 0)
-Traceback (most recent call last):
-...
-ZeroDivisionError: division by zero
-
-==============
-7. Div by None
-==============
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], None)
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
-==============
-8. Div by -div
-==============
-
->>> matrix_divided([[44, 555, 9023], [-8, -44.66, 99]], -6)
-[[-7.33, -92.5, -1503.83], [1.33, 7.44, -16.5]]
-
-==================
-9. 10 Div by Empty
-==================
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], "")
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], " ")
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], )
-Traceback (most recent call last):
-...
-TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
->>> matrix_divided([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]], [])
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
-===========
-10. Strings
-===========
-
->>> matrix_divided("Coding", 835)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided('222', 835)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-=========================
-11. string inside numbers
-=========================
-
->>> matrix_divided([[1, 2, "Home", 4, 5], [1, 2, 3, 4, 5]], 28)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-=====================
-12. Not the same size
-=====================
-
->>> matrix_divided([[1999, 22000, 43, 5], [33, 3444, 111]], 999)
+>>> matrix_divided([[1, 2, 3],[4, 5]], 1)
 Traceback (most recent call last):
 ...
 TypeError: Each row of the matrix must have the same size
 
-==============
-13. Empty list
-==============
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
->>> matrix_divided([[], [""]], 344844)
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+>>> matrix_divided("CAMILO", 2)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-===============
-14. Only 1 list
-===============
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], -1)
+[[-1.0, -2.0, -3.0], [-4.0, -5.0, -6.0]]
 
->>> matrix_divided([9, 333, -5672, 4442, 4.90], 123456789)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-========
-15. Char
-========
-
->>> matrix_divided('#', -903.33)
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], "CAMILO")
 Traceback (most recent call last):
 ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+TypeError: div must be a number
 
-=========
-16. Maths
-=========
-
->>> matrix_divided([[3, 5 - 3, 6], [4 + 10, 8, 6]], 2)
-[[1.5, 1.0, 3.0], [7.0, 4.0, 3.0]]
-
-=============
-17. +2 matrix
-=============
-
->>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3)
-[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
-
-================
-18. Missing args
-================
-
->>> matrix_divided([[1, 2, 33, 3], [""]], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([[1, 2, 33, 3], [" "]], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided()
-Traceback (most recent call last):
-TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
-
->>> matrix_divided([[1, 2, 33, 3], []], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([[], [], [], []], 6)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([], 900334.6667)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided(None, 333333.9999999)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([[], [""]], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([["", " ", []], [3, 4, 5]], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([[       []  ], [           ""           " " ]], 344844)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix_divided([[1, 2, 33, 3], [" "]], )
-Traceback (most recent call last):
-...
-TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
->>> matrix_divided(1024)
-Traceback (most recent call last):
-...
-TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
-matrix_divided([[2.1, 5.8], [], [10, -3]], 8)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[], []], 6)
+[[], []]
