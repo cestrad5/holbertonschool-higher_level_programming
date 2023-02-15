@@ -31,7 +31,4 @@ def text_indentation(text):
                 is_whitespace = 0
             else:
                 print(_letters, end="")
-
-
-
-
+                

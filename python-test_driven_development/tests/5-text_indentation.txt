@@ -4,12 +4,12 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 >>> text_indentation("Camilo Estrada")
-Mateo Acevedo
+Camilo Estrada
 
 >>> text_indentation("Camilo.Estrada")
-Mateo.
+Camilo.
 <BLANKLINE>
-Acevedo
+Estrada
 
 >>> text_indentation(8)
 Traceback (most recent call last):
