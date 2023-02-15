@@ -1,0 +1,210 @@
+Testing my function: def add_integer(a, b=98):
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+===================
+1. Positive numbers
+===================
+
+>>> add_integer(10, 18)
+28
+
+================
+2. Negative ints
+================
+
+>>> add_integer(100, -2)
+98
+
+=============
+3. Only 1 arg
+=============
+
+>>> add_integer(2)
+100
+
+=========================
+4. Float and negative int
+=========================
+
+>>> add_integer(100.3, -2)
+98
+
+=============
+5. high float
+=============
+
+>>> add_integer(1500.5)
+1598
+
+======
+6. NaN
+======
+
+>>> add_integer(float('NaN'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+==============
+7. String in a
+==============
+
+>>> add_integer("Cohort", 17)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+==============
+8. String in b
+==============
+
+>>> add_integer(-100, "School")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+================
+9. Double string
+================
+
+>>> add_integer("Francisco", "Ramírez")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+========
+10. None
+========
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+==========
+11. Floats
+==========
+
+>>> add_integer(100.5, 10.8)
+110
+
+===================
+12. Negative floats
+===================
+
+>>> add_integer(-100.5, -10.8)
+-110
+
+========
+13. Char
+========
+
+>>> add_integer("F")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+=============
+14. None in a
+=============
+
+>>> add_integer(None, 999)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+=============
+15. None in b
+=============
+
+>>> add_integer(-1000, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+=========
+16. Chars
+=========
+
+>>> add_integer('a', 52)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(4999, '$')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+==========
+17. Emptys
+==========
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer("", )
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(599, "")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer( , )
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+>>> add_integer([])
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer("")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer("", "")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+=============
+18. Only None
+=============
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+============
+19. Infinity
+============
+
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('-inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+==========
+20. Maths
+==========
+
+>>> add_integer(3 + 2, 10 - 5)
+10
+
+>>> add_integer(3 * 5, 10 / 3)
+18
