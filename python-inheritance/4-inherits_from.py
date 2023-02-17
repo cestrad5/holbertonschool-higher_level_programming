@@ -6,8 +6,8 @@ from the specified class"""
 
 
 def inherits_from(obj, a_class):
-    """inheritance validation"""
+    """issubclass is used for compare two class"""
 
-    if type(obj) is a_class:
-        return False
-    return isinstance(obj, a_class)
+    if isinstance(obj, a_class) & issubclass(a_class, obj.__class__) is False:
+        return True
+    return False
