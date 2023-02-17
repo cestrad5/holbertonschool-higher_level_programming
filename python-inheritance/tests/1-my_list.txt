@@ -56,3 +56,15 @@
 
 >>> print(my_list)
 [None, None, None]
+
+>>> my_list = MyList()
+
+>>> my_list.append("")
+>>> my_list.append("")
+>>> my_list.append("")
+
+>>> print(my_list)
+['', '', '']
+
+>>> my_list.print_sorted()
+['', '', '']
