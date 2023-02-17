@@ -5,7 +5,6 @@ that inherited (directly or indirectly)
 from the specified class"""
 
 
-#!/usr/bin/python3
 def inherits_from(obj, a_class):
     """Checks if the object is an instance
     """
