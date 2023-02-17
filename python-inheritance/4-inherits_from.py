@@ -5,9 +5,8 @@ that inherited (directly or indirectly)
 from the specified class"""
 
 
+#!/usr/bin/python3
 def inherits_from(obj, a_class):
-    """issubclass is used for compare two class"""
-
-    if isinstance(obj, a_class) & issubclass(a_class, obj.__class__) is False:
-        return True
-    return False
+    """Checks if the object is an instance
+    """
+    return isinstance(obj, a_class) and type(obj) is not a_class
