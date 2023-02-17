@@ -9,4 +9,9 @@ from the specified class"""
 def inherits_from(obj, a_class):
     """Checks if the object is an instance
     """
-    return isinstance(obj, a_class) and type(obj) is not a_class
+    if type(obj) == a_class:
+        return False
+    elif isinstance(obj, a_class):
+        return True
+    else:
+        return False
