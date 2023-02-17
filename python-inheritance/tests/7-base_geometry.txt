@@ -1,42 +1,92 @@
-"""Test the class"""
+The ``7-base_geometry`` module
+============================
 
-"""Importing the class from the module"""
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Using ``integer_validator``
+---------------------
 
-BG = BaseGeometry()
-BG.integer_validator("my_int", 12)
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-'----------------------------------------------------'
->>> BG = BaseGeometry()
->>> try:
-...     BG.integer_validator("my_int", -12)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] my_int must be greater than 0
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
 
->>> BG = BaseGeometry()
->>> try:
-...     BG.integer_validator("my_int", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] my_int must be greater than 0
+value as string:
+    	>>> bg.integer_validator("name", "John")
+    	Traceback (most recent call last):
+	TypeError: name must be an integer
 
-Value None
+0 or negative:
+	>>> bg.integer_validator("age", 0)
+    	Traceback (most recent call last):
+    	ValueError: age must be greater than 0
 
->>> BG = BaseGeometry()
->>> try:
-...     BG.integer_validator("my_int", True)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] my_int must be an integer
+value as float:
+	>>> bg.integer_validator("age", 2.0)
+    	Traceback (most recent call last):
+	TypeError: age must be an integer
 
-Value no integer (boolean)
+Name error:
+	>>> bg.integer_validator("age", b)
+    	Traceback (most recent call last):
+    	NameError: name 'b' is not defined
 
->>> BG = BaseGeometry()
->>> try:
-...     BG.integer_validator("my_int", 3.24)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] my_int must be an integer
+Infinity:
+	>>> bg.integer_validator("age", float("inf"))
+    	Traceback (most recent call last):
+    	TypeError: age must be an integer
 
-Value no integer (float)
+NaN:
+	>>> bg.integer_validator("age", float("nan"))
+    	Traceback (most recent call last):
+    	TypeError: age must be an integer
+
+None:
+    	>>> bg.integer_validator("name", None)
+    	Traceback (most recent call last):
+    	TypeError: name must be an integer
+
+Single argument:
+    	>>> bg.integer_validator("name", )
+    	Traceback (most recent call last):
+    	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+No parameter:
+    	>>> bg.integer_validator()
+    	Traceback (most recent call last):
+    	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Name as empty string:
+    	>>> bg.integer_validator("", 21)
+
+Name as int:
+    	>>> bg.integer_validator(21, 42)
+
+Three parameters:
+    	>>> bg.integer_validator("name", 42, yh,0hli,9li4,ch4li4,)
+	Traceback (most recent call last):
+    	SyntaxError: invalid syntax
+
+value as tuple:
+    	>>> bg.integer_validator("name", (4,))
+    	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+value as list:
+    	>>> bg.integer_validator("name", [3])
+    	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+value as bool:
+    	>>> bg.integer_validator("name", True)
+    	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+value as set:
+    	>>> bg.integer_validator("name", {3, 4})
+    	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+area:
+	>>> bg.area()
+    	Traceback (most recent call last):
+    	Exception: area() is not implemented
