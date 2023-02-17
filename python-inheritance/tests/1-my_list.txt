@@ -47,3 +47,12 @@
 
 >>> obj2.print_sorted()
 [-73, -32, -8, 0]
+
+>>> my_list = MyList()
+
+>>> my_list.append(None)
+>>> my_list.append(None)
+>>> my_list.append(None)
+
+>>> print(my_list)
+[None, None, None]
