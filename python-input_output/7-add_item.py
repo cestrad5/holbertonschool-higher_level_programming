@@ -7,18 +7,12 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-def add_item(filename=""):
-    """write a file"""
+file_exists = exists("add_item.json")
+list = []
 
-    try:
-        file_json = load_from_json_file(filename)
-    except Exception:
-        file_json = []
+if file_exists:
+    list = load_from_json_file("add_item.json")
+for args in argv[1:]:
+    list.append(args)
 
-    for i in sys.argv[1:]:
-        file_json.append(i)
-    save_to_json_file(file_json, filename)
-
-
-filename = "add_item.json"
-add_item(filename)
+save_to_json_file(list, "add_item.json")
