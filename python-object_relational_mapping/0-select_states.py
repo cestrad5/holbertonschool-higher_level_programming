@@ -14,5 +14,7 @@ cur.execute("SELECT * FROM states ORDER BY id ASC")
 query_rows = cur.fetchall()
 for row in query_rows:
     print(row)
+# Close all cursors
 cur.close()
+# Close all databases
 conn.close()
